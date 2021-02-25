@@ -7,9 +7,7 @@ app = FastAPI(
     version="0.1.0"
 )
 
-my_article = {
-    "content": "Apple buys U.K. startup for 1 billion"
-}
+articles = [Article(content="Apple buys U.K. startup for 1 billion")]
 
 
 @app.get("/")
@@ -24,8 +22,9 @@ def say_hello():
 
 @app.get("/article/{article_id}")
 def retrieve_article(article_id: int, uppercase: bool = False):
+    my_article = articles[article_id]
     return {
-        "content": my_article["content"].upper() if uppercase else my_article["content"],
+        "content": my_article.content.upper() if uppercase else my_article.content,
         "id": article_id
     }
 
