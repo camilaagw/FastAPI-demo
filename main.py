@@ -27,3 +27,8 @@ def retrieve_article(article_id: int, uppercase: bool = False):
         "content": my_article["content"].upper() if uppercase else my_article["content"],
         "id": article_id
     }
+
+
+@app.post("/article")
+def post_article(body: dict):
+    return body
