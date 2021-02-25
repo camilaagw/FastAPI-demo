@@ -38,3 +38,4 @@ def retrieve_article(article_id: int, uppercase: bool = False):
 def post_article(article: Article):
     articles.append(article)
     return article
+
