@@ -20,6 +20,11 @@ def say_hello():
     return {"message": "Hello Team! This API seems to be working"}
 
 
+@app.get("/articles")
+def show_articles():
+    return articles
+
+
 @app.get("/article/{article_id}")
 def retrieve_article(article_id: int, uppercase: bool = False):
     my_article = articles[article_id]
@@ -31,4 +36,5 @@ def retrieve_article(article_id: int, uppercase: bool = False):
 
 @app.post("/article")
 def post_article(article: Article):
+    articles.append(article)
     return article
