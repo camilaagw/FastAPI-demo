@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from models import Article
+from models import Article, ArticleServer
+from typing import List
 
 app = FastAPI(
     title="Cool API",
@@ -20,21 +21,22 @@ def say_hello():
     return {"message": "Hello Team! This API seems to be working"}
 
 
-@app.get("/articles")
+@app.get("/articles", response_model=List[Article])
 def show_articles():
     return articles
 
 
-@app.get("/article/{article_id}")
+@app.get("/article/{article_id}", response_model=ArticleServer)
 def retrieve_article(article_id: int, uppercase: bool = False):
     my_article = articles[article_id]
-    return {
-        "content": my_article.content.upper() if uppercase else my_article.content,
-        "id": article_id
-    }
+    return ArticleServer(
+        content=my_article.content.upper() if uppercase else my_article.content,
+        comments=my_article.comments,
+        id=article_id
+    )
 
 
-@app.post("/article")
+@app.post("/article", response_model=Article)
 def post_article(article: Article):
     articles.append(article)
     return article

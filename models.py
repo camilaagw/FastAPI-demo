@@ -5,3 +5,7 @@ from typing import List
 class Article(BaseModel):
     content: constr(max_length=255)
     comments: List[str] = []
+
+
+class ArticleServer(Article):
+    id: int
