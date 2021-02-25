@@ -22,5 +22,8 @@ def say_hello():
 
 
 @app.get("/article/{article_id}")
-def retrieve_article(article_id: int):
-    return {"content": my_article["content"], "id": article_id}
+def retrieve_article(article_id: int, uppercase: bool = False):
+    return {
+        "content": my_article["content"].upper() if uppercase else my_article["content"],
+        "id": article_id
+    }
