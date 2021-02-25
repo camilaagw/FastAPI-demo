@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from models import Article
 
 app = FastAPI(
     title="Cool API",
@@ -30,5 +31,5 @@ def retrieve_article(article_id: int, uppercase: bool = False):
 
 
 @app.post("/article")
-def post_article(body: dict):
-    return body
+def post_article(article: Article):
+    return article
