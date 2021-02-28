@@ -46,3 +46,8 @@ def post_article(article: Article):
 def delete_last_article():
     return articles.pop()
 
+
+@app.put("/article/{article_id}", response_model=Article)
+def update_article(article: Article, article_id: int):
+    articles[article_id] = article
+    return articles[article_id]
