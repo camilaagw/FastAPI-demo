@@ -41,3 +41,8 @@ def post_article(article: Article):
     articles.append(article)
     return article
 
+
+@app.delete("/last_article", response_model=Article)
+def delete_last_article():
+    return articles.pop()
+
