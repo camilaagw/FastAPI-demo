@@ -11,7 +11,7 @@ app = FastAPI(
 articles = [Article(content="Apple buys U.K. startup for 1 billion")]
 
 
-@app.get("/")
+@app.get("/",  tags=['Greetings'])
 def say_hello():
     """Say hello to the *fabulous* **Team!!!**.
     * Hallo!
@@ -21,12 +21,12 @@ def say_hello():
     return {"message": "Hello Team! This API seems to be working"}
 
 
-@app.get("/articles", response_model=List[Article])
+@app.get("/articles", response_model=List[Article], tags=['Articles'])
 def show_articles():
     return articles
 
 
-@app.get("/article/{article_id}", response_model=ArticleServer)
+@app.get("/article/{article_id}", response_model=ArticleServer, tags=['Articles'])
 def retrieve_article(article_id: int, uppercase: bool = False):
     my_article = articles[article_id]
     return ArticleServer(
@@ -36,18 +36,18 @@ def retrieve_article(article_id: int, uppercase: bool = False):
     )
 
 
-@app.post("/article", response_model=Article)
+@app.post("/article", response_model=Article, tags=['Articles'])
 def post_article(article: Article):
     articles.append(article)
     return article
 
 
-@app.delete("/last_article", response_model=Article)
+@app.delete("/last_article", response_model=Article, tags=['Articles'])
 def delete_last_article():
     return articles.pop()
 
 
-@app.put("/article/{article_id}", response_model=Article)
+@app.put("/article/{article_id}", response_model=Article, tags=['Articles'])
 def update_article(article: Article, article_id: int):
     articles[article_id] = article
     return articles[article_id]
