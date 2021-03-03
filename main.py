@@ -10,6 +10,7 @@ app = FastAPI(
 )
 
 articles = [Article(content="Apple buys U.K. startup for 1 billion")]
+responses = {404: {'description': 'Not found'}}
 
 
 @app.get("/",  tags=['Greetings'])
@@ -27,7 +28,7 @@ def show_articles():
     return articles
 
 
-@app.get("/article/{article_id}", response_model=ArticleServer, tags=['Articles'])
+@app.get("/article/{article_id}", response_model=ArticleServer, tags=['Articles'], responses=responses)
 def retrieve_article(article_id: int, uppercase: bool = False):
     validate_article_id(article_id, articles)
     my_article = articles[article_id]
@@ -49,7 +50,7 @@ def delete_last_article():
     return articles.pop()
 
 
-@app.put("/article/{article_id}", response_model=Article, tags=['Articles'])
+@app.put("/article/{article_id}", response_model=Article, tags=['Articles'], responses=responses)
 def update_article(article: Article, article_id: int):
     validate_article_id(article_id, articles)
     articles[article_id] = article
