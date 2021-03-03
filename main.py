@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from models import Article, ArticleServer
 from typing import List
+from utils import validate_article_id
 
 app = FastAPI(
     title="Cool API",
@@ -28,6 +29,7 @@ def show_articles():
 
 @app.get("/article/{article_id}", response_model=ArticleServer, tags=['Articles'])
 def retrieve_article(article_id: int, uppercase: bool = False):
+    validate_article_id(article_id, articles)
     my_article = articles[article_id]
     return ArticleServer(
         content=my_article.content.upper() if uppercase else my_article.content,
@@ -49,5 +51,6 @@ def delete_last_article():
 
 @app.put("/article/{article_id}", response_model=Article, tags=['Articles'])
 def update_article(article: Article, article_id: int):
+    validate_article_id(article_id, articles)
     articles[article_id] = article
     return articles[article_id]
