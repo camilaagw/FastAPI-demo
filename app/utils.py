@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from models import Article
+from app.models import Article
 from typing import List
 
 
