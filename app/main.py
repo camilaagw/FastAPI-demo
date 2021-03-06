@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from .routers import articles, greetings
+from .routers import analytics, articles, greetings
 
 app = FastAPI(
     title="Cool API",
@@ -10,6 +10,7 @@ app = FastAPI(
 
 app.include_router(greetings.router)
 app.include_router(articles.router)
+app.include_router(analytics.router)
 
 
 
