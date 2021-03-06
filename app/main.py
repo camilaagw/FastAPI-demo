@@ -4,7 +4,7 @@ from .routers import analytics, articles, greetings
 
 app = FastAPI(
     title="Cool API",
-    description="A cool *API* to test **FastAPI**. Made with ❤️ by `Unit8`",
+    description="A cool *API* to test **FastAPI** 🚀`",
     version="0.1.0",
 )
 
