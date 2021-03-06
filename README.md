@@ -16,9 +16,10 @@ source fastapi-env/bin/activate
 pip install -r requirements.txt
 ```
 
-Create a git alias:
+Create the `previous` and `next` git aliases:
 ```
-git config --global alias.next '!git checkout `git rev-list HEAD..demo-end | tail -1`'
+git config --global alias.previous '!git checkout $(git rev-list demo-start~1..HEAD | head -2 | tail -1)'
+git config --global alias.next '!git checkout $(git rev-list HEAD..demo-end | tail -1 )'
 ```
 
 Checkout the demo-start tag:
@@ -33,7 +34,7 @@ uvicorn main:app --reload
 ```
 
 When you are ready, move to the next step with `git next`.
-To move backwards simply use  `git reset HEAD^`.
+To move backwards use  `git previous`.
 
 
 
