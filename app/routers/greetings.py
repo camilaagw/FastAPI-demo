@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 
-router = APIRouter()
+router = APIRouter(tags=['Greetings'])
 
 
-@router.get("/",  tags=['Greetings'])
+@router.get("/")
 def say_hello():
     """Say hello to the *fabulous* **Team!!!**.
     * Hallo!
