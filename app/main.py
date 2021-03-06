@@ -11,9 +11,3 @@ app = FastAPI(
 app.include_router(greetings.router)
 app.include_router(articles.router)
 app.include_router(analytics.router)
-
-
-
-
-
-

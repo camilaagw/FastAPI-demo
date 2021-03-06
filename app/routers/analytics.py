@@ -30,7 +30,7 @@ async def analyse_article_sentiment(article_id: int):
         resp = await client.post(
             'https://api.deepai.org/api/sentiment-analysis',
             headers={"api-key": "3a086f57-3e2c-4874-ae9c-c215463fb3f2"},
-            data={"text": article.content}  # TODO: What was the content of this article???
+            data={"text": article.content}
         )
         resp.raise_for_status()
         data = resp.json()
