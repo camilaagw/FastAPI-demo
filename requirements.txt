@@ -2,3 +2,4 @@ fastapi
 uvicorn
 spacy
 httpx
+pydantic
