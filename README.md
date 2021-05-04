@@ -1,6 +1,6 @@
 # FastAPI demo :rocket:
 
-Step-by-step demo of some of the amazing functionalities of **FastAPI**. For more information visit https://fastapi.tiangolo.com/. 
+Step-by-step demo of some of the amazing functionalities of **FastAPI**. Check out the [video!](https://www.youtube.com/watch?v=nHGAGtxSeNk&t=1588s&ab_channel=CamilaAndreaGonz%C3%A1lezWilliamson)
 
 ## Requirements
 Python 3.6+
