@@ -1,6 +1,6 @@
 # FastAPI demo :rocket:
 
-Step-by-step demo of some of the amazing functionalities of **FastAPI**. Check out the [video!](https://www.youtube.com/watch?v=nHGAGtxSeNk&t=1588s&ab_channel=CamilaAndreaGonz%C3%A1lezWilliamson)
+Step-by-step demo of some of the amazing functionalities of **FastAPI**. Check out the [video!](https://www.youtube.com/watch?v=nHGAGtxSeNk)
 
 ## Requirements
 Python 3.6+
